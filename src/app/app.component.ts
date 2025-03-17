@@ -9,7 +9,9 @@ import { CommonModule, NgForOf } from '@angular/common';
   template: `
     <h1>Users</h1>
     <ul>
-      <li *ngFor="let user of users">{{ user.name }} - {{ user.email }}</li>
+      <li *ngFor="let user of users">
+        {{ user.name }} - {{ user.email }} - {{ user.state }}
+      </li>
     </ul>
   `,
 })
@@ -22,9 +24,9 @@ export class AppComponent {
         query: gql`
           query {
             users {
-              id
               name
               email
+              state
             }
           }
         `,
