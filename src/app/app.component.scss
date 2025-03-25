@@ -1,0 +1,188 @@
+// // Global Variables
+// $primary-color: #00bcd4;
+// $background-color: #f8f9fa; // Lighter modern gray background
+// $text-color: #222;
+// $hover-color: #007c91;
+// $nav-height: 50px;
+// $spacing: 8px;
+// $border-radius: 6px;
+
+// // Body Styles
+// body {
+//   background-color: $background-color;
+//   color: $text-color;
+//   font-family: "Poppins", sans-serif;
+//   margin: 0;
+//   padding: 0;
+//   box-sizing: border-box;
+// }
+
+// // Navigation Styles
+// nav {
+//   background: linear-gradient(
+//     to right,
+//     #333,
+//     #222
+//   ); // Gradient for a modern look
+//   display: flex;
+//   justify-content: center;
+//   align-items: center;
+//   height: $nav-height;
+//   padding: 0 15px;
+//   box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+//   position: sticky;
+//   top: 0;
+//   z-index: 1000;
+
+//   a {
+//     color: white;
+//     text-decoration: none;
+//     margin: 0 $spacing;
+//     font-size: 15px;
+//     font-weight: 500;
+//     padding: 8px 12px;
+//     border-radius: $border-radius;
+//     transition: all 0.3s ease-in-out;
+
+//     &:hover {
+//       background-color: $hover-color;
+//       transform: scale(1.1);
+//     }
+//   }
+// }
+
+// // Horizontal line style
+// hr {
+//   margin: 5px auto; // Reduce space between nav and content
+//   width: 85%;
+//   border: none;
+//   height: 2px;
+//   background-color: $primary-color;
+//   opacity: 0.6;
+// }
+
+// // Router Outlet (Content Section)
+// router-outlet {
+//   display: block;
+//   padding: 12px; // Reduce padding for a compact look
+//   background-color: white;
+//   border-radius: $border-radius;
+//   box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+//   margin: 8px auto; // Minimized top spacing
+//   max-width: 900px;
+//   min-height: 250px;
+// }
+
+// // Responsive Design
+// @media (max-width: 768px) {
+//   nav {
+//     flex-direction: row;
+//     flex-wrap: wrap;
+//     height: auto;
+//     padding: 10px;
+//   }
+
+//   nav a {
+//     margin: 5px;
+//     font-size: 14px;
+//     padding: 6px 10px;
+//   }
+
+//   hr {
+//     width: 90%;
+//     margin: 3px auto;
+//   }
+
+//   router-outlet {
+//     margin: 4px auto;
+//     padding: 8px;
+//     min-height: 200px;
+//   }
+// }
+
+/* Dark Navigation Header */
+nav {
+  background: #121212; /* Dark background */
+  padding: 1rem 2rem;
+  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
+  position: relative;
+  border-bottom: 1px solid #333; /* Subtle border */
+}
+
+nav a {
+  color: #e0e0e0; /* Light gray text */
+  text-decoration: none;
+  padding: 0.7rem 1.5rem;
+  margin: 0 0.3rem;
+  border-radius: 6px;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  font-weight: 500;
+  font-size: 0.95rem;
+  position: relative;
+}
+
+/* Hover effect with subtle glow */
+nav a:hover {
+  color: white;
+  background: rgba(255, 255, 255, 0.08);
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Active link styling */
+nav a.router-link-active {
+  color: #64b5f6; /* Light blue accent */
+  background: rgba(100, 181, 246, 0.1);
+  font-weight: 600;
+}
+
+/* Animated underline for active links */
+nav a.router-link-active::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 50%;
+  height: 2px;
+  background: #64b5f6;
+  border-radius: 2px;
+}
+
+/* Modern separator */
+nav a:not(:last-child)::after {
+  content: "|";
+  color: #444; /* Dark separator */
+  margin-left: 1.8rem;
+  position: absolute;
+  opacity: 0.6;
+}
+
+/* Remove separator on mobile */
+@media (max-width: 768px) {
+  nav a:not(:last-child)::after {
+    display: none;
+  }
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  nav {
+    padding: 0.8rem;
+    text-align: center;
+  }
+
+  nav a {
+    display: inline-block;
+    padding: 0.6rem 1rem;
+    margin: 0.2rem;
+    font-size: 0.85rem;
+  }
+}
+
+/* Modern HR style for dark theme */
+hr {
+  border: 0;
+  height: 1px;
+  background: linear-gradient(to right, transparent, #333, transparent);
+  margin: 0;
+}

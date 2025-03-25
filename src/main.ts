@@ -3,8 +3,13 @@ import { AppComponent } from './app/app.component';
 import { provideApollo } from 'apollo-angular';
 import { HttpLink } from 'apollo-angular/http';
 import { InMemoryCache, ApolloClientOptions } from '@apollo/client/core';
-import { provideHttpClient, withInterceptorsFromDi } from '@angular/common/http';
+import {
+  provideHttpClient,
+  withInterceptorsFromDi,
+} from '@angular/common/http';
 import { inject } from '@angular/core';
+import { provideRouter, RouterModule } from '@angular/router';
+import { appRoutes } from './app/app.routes';
 
 const uri = 'http://localhost:4000/graphql'; // Replace with your GraphQL server
 
@@ -20,5 +25,6 @@ bootstrapApplication(AppComponent, {
   providers: [
     provideHttpClient(withInterceptorsFromDi()), // Optional if you use interceptors
     provideApollo(createApollo),
+    provideRouter(appRoutes), // Use provideRouter instead of RouterModule.forRoot()
   ],
 });

@@ -1,0 +1,74 @@
+/* Styling for the signup container */
+.signup-container {
+  max-width: 500px;
+  margin: 40px auto;
+  background-color: #fff;
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.1); /* Subtle shadow for depth */
+}
+
+/* Heading for the signup section */
+.signup-container h2 {
+  text-align: center;
+  font-size: 24px;
+  margin-bottom: 20px;
+  color: #333;
+}
+
+/* Styling for the form */
+form {
+  display: flex;
+  flex-direction: column;
+}
+
+/* Styling for each input field */
+form input,
+form select {
+  margin-bottom: 15px;
+  padding: 10px;
+  border: 1px solid #ddd;
+  border-radius: 4px;
+  font-size: 16px;
+  outline: none;
+  transition: border-color 0.3s ease, box-shadow 0.3s ease;
+}
+
+/* Focus effect on input fields */
+form input:focus,
+form select:focus {
+  border-color: #00bcd4;
+  box-shadow: 0 0 5px rgba(0, 188, 212, 0.5);
+}
+
+/* Button styling */
+button {
+  background-color: #00bcd4;
+  color: white;
+  padding: 12px;
+  font-size: 16px;
+  font-weight: bold;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+/* Button hover effect */
+button:hover {
+  background-color: #00796b;
+}
+
+/* Styling for the success message */
+.success-message {
+  color: green;
+  text-align: center;
+  margin-top: 15px;
+}
+
+/* Styling for the error message */
+.error-message {
+  color: red;
+  text-align: center;
+  margin-top: 15px;
+}
