@@ -1,7 +1,7 @@
 import { Component } from '@angular/core';
 import { Apollo } from 'apollo-angular';
 import { gql } from '@apollo/client/core';
-import { FormsModule } from '@angular/forms';
+import { FormsModule, NgForm } from '@angular/forms';
 import { CommonModule } from '@angular/common';
 
 const CREATE_USER = gql`
@@ -36,7 +36,12 @@ export class SignupComponent {
 
   constructor(private apollo: Apollo) {}
 
-  signup() {
+  signup(form: NgForm) {
+    if (form.invalid) {
+      this.errorMessage = 'Please fill in all required fields correctly.';
+      return;
+    }
+
     this.successMessage = '';
     this.errorMessage = '';
 
@@ -60,23 +65,12 @@ export class SignupComponent {
         ({ data }) => {
           this.successMessage = 'User created successfully!';
           console.log('User created:', data);
-          this.clearForm();
+          form.resetForm(); // Reset form after success
         },
         (error) => {
           this.errorMessage = 'Error creating user. Please try again.';
           console.error('Error:', error);
         }
       );
-  }
-
-  clearForm() {
-    this.name = '';
-    this.email = '';
-    this.password = '';
-    this.gender = '';
-    this.phone = '';
-    this.city = '';
-    this.state = '';
-    this.country = '';
   }
 }
