@@ -60,17 +60,21 @@
       Gender is required.
     </div>
 
-    <!-- Phone -->
+    <!-- Phone (Required & 10-digit validation) -->
     <input
       type="text"
       [(ngModel)]="phone"
       name="phone"
       placeholder="Phone Number"
+      required
       pattern="^[0-9]{10}$"
       #phoneField="ngModel"
     />
     <div class="error" *ngIf="phoneField.invalid && phoneField.touched">
-      Phone number must be 10 digits.
+      <span *ngIf="phoneField.errors?.['required']"
+        >Phone number is required.</span
+      >
+      <span *ngIf="phoneField.errors?.['pattern']">Must be 10 digits.</span>
     </div>
 
     <!-- City, State, Country -->
